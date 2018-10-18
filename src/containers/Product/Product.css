@@ -1,0 +1,7 @@
+div.imgs a img {
+  width: 100px;
+}
+
+div.ui-lightbox div div img {
+  width: 720px !important;
+}

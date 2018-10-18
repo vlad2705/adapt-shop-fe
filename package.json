@@ -1,0 +1,98 @@
+{
+  "name": "adapt-shop-fe-clear",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@prague-digi/error-handler": "^1.0.2",
+    "@prague-digi/redux-logger": "^1.0.7",
+    "axios": "^0.17.1",
+    "classnames": "^2.2.5",
+    "font-awesome": "^4.7.0",
+    "history": "^4.7.2",
+    "node-sass": "^4.7.2",
+    "primereact": "^1.5.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-redux": "^5.0.6",
+    "react-router-dom": "^4.2.2",
+    "react-router-redux": "^4.0.8",
+    "react-scripts": "1.1.0",
+    "react-transition-group": "^2.2.1",
+    "redux": "^3.7.2",
+    "redux-actions": "^2.2.1",
+    "redux-form": "^7.3.0",
+    "redux-saga": "^0.16.0",
+    "seamless-immutable": "^7.1.2",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.11.1"
+  },
+  "scripts": {
+    "build": "react-scripts build",
+    "build:clean": "rimraf ./build",
+    "eject": "react-scripts eject",
+    "fixme": "fixme -i \\\"build/**\\\" -i \\\"node_modules/**\\\" -i \\\"coverage/**\\\" -i \\\"flow-coverage/**\\\" -i \\\".git/**\\\" -i \\\"flow-typed/**\\\" -i \\\"public/**\\\"",
+    "flow": "flow --show-all-errors",
+    "flow:coverage": "flow-coverage-report -i \\\"src/**/*.js\\\" -x \\\"src/tests/**\\\" -x \\\"src/**/*.test.js\\\" -x \\\"src/**/test.js\\\" -x/ \\\"src/**/*.css\\\" -t html -t text",
+    "flow:restart": "flow stop && flow start",
+    "flow:setup": "yarn && flow-typed install && flow-typed update",
+    "flow:watch": "flow-watch",
+    "lint": "eslint \\\"./src/**/*.js\\\" --max-warnings=0",
+    "lint:fix": "yarn lint --fix",
+    "lint:staged": "yarn lint:fix --max-warnings=0",
+    "mockserver": "node ./mockserver",
+    "mockserver:watch": "nodemon ./mockserver",
+    "precommit": "lint-staged",
+    "prepush": "yarn lint:staged && yarn test:coverage && yarn run flow",
+    "setup": "yarn && yarn install-flow-types",
+    "start": "react-scripts start",
+    "test": "react-scripts test --env=jsdom",
+    "test:coverage": "react-scripts test --env=jsdom --coverage"
+  },
+  "devDependencies": {
+    "@prague-digi/eslint-config-prague": "^3.1.0",
+    "@prague-digi/mockserver": "^1.2.5",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.2.1",
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "eslint": "^4.16.0",
+    "fixme": "^0.4.4",
+    "flow-bin": "^0.64.0",
+    "flow-coverage-report": "^0.4.1",
+    "flow-typed": "^2.2.3",
+    "husky": "^0.14.3",
+    "lint-staged": "^6.1.0",
+    "prettier": "^1.10.2",
+    "react-test-renderer": "^16.2.0",
+    "rimraf": "^2.6.2",
+    "sinon": "^4.2.2"
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "lint:staged",
+      "git add"
+    ],
+    "*.{json,css,scss,less}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}",
+      "!node_modules/**",
+      "!src/**/index.js"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 70,
+        "functions": 70,
+        "lines": 70,
+        "statements": 70
+      }
+    }
+  }
+}
